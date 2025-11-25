@@ -93,6 +93,31 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", highlightNavigation);
 
   // ============================================================================
+  // NAVBAR BACKGROUND ON SCROLL
+  // ============================================================================
+  // Changes navbar from transparent to solid black background when scrolling
+
+  const navbar = document.getElementById("navbar");
+
+  /**
+   * Updates navbar background based on scroll position
+   * Adds 'scrolled' class when user scrolls down from top
+   */
+  function updateNavbarBackground() {
+    if (window.scrollY > 50) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+  }
+
+  // Listen for scroll events and update navbar background
+  window.addEventListener("scroll", updateNavbarBackground);
+
+  // Initialize navbar state on page load
+  updateNavbarBackground();
+
+  // ============================================================================
   // GALLERY LIGHTBOX INITIALIZATION
   // ============================================================================
   // Initializes GLightbox for full-screen image viewing in the gallery
