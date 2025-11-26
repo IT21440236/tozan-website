@@ -40,20 +40,24 @@
   --footer-text-muted-color: rgba(255, 255, 255, 0.6); /* Muted footer text */
   --footer-divider-color: rgba(255, 255, 255, 0.2); /* Footer divider line */
 
-  /* Typography - System font stack for optimal performance */
-  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  /* Typography - Inter font for modern, professional look */
+  --font-family-base: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-size-base: 1rem; /* 16px - body text */
-  --font-size-lg: 1.1rem; /* 17.6px - large body text */
-  --font-size-xl: 1.2rem; /* 19.2px - small headings */
+  --font-size-lg: 1.125rem; /* 18px - large body text */
+  --font-size-xl: 1.25rem; /* 20px - small headings */
   --font-size-2xl: 1.5rem; /* 24px - medium headings */
-  --font-size-3xl: 2rem; /* 32px - large headings */
-  --font-size-4xl: 2.5rem; /* 40px - section titles */
-  --font-size-5xl: 3.5rem; /* 56px - hero title */
+  --font-size-3xl: 2.25rem; /* 36px - large headings */
+  --font-size-4xl: 3rem; /* 48px - section titles */
+  --font-size-5xl: 4rem; /* 64px - hero title */
   --font-weight-normal: 400; /* Regular weight */
   --font-weight-medium: 500; /* Medium weight */
+  --font-weight-semibold: 600; /* Semi-bold weight */
   --font-weight-bold: 700; /* Bold weight */
+  --font-weight-extrabold: 800; /* Extra bold weight */
+  --font-weight-black: 900; /* Black weight */
   --line-height-base: 1.6; /* Optimal readability */
+  --line-height-tight: 1.2; /* Tight line height for headings */
 
   /* Spacing - Consistent spacing scale */
   --spacing-xs: 0.5rem; /* 8px - tight spacing */
@@ -101,6 +105,14 @@ body {
   background-color: transparent !important;
   box-shadow: none !important;
   transition: all var(--transition-speed) ease;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+
+.navbar .container {
+  max-width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 /* Navbar with solid background when scrolled */
@@ -111,8 +123,10 @@ body {
 
 .navbar-brand {
   font-weight: var(--font-weight-bold);
+  font-size: 1.25rem;
   color: var(--white-color) !important;
   transition: color var(--transition-speed) ease;
+  letter-spacing: -0.01em;
 }
 
 .navbar.scrolled .navbar-brand {
@@ -122,7 +136,9 @@ body {
 .nav-link {
   color: var(--white-color) !important;
   font-weight: var(--font-weight-medium);
+  font-size: 0.9375rem;
   transition: color var(--transition-speed) ease;
+  letter-spacing: 0.01em;
 }
 
 .nav-link:hover {
@@ -199,13 +215,19 @@ body {
 
 .hero-content h1 {
   font-size: var(--font-size-5xl);
-  font-weight: var(--font-weight-bold);
-  margin-bottom: var(--spacing-sm);
+  font-weight: var(--font-weight-black);
+  margin-bottom: var(--spacing-md);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.02em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-content .lead {
-  font-size: var(--font-size-2xl);
-  margin-bottom: var(--spacing-lg);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-normal);
+  margin-bottom: var(--spacing-xl);
+  line-height: 1.5;
+  opacity: 0.95;
 }
 
 .hero-content .btn-primary {
@@ -235,10 +257,12 @@ body {
 
 .section-title {
   font-size: var(--font-size-4xl);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-black);
   margin-bottom: var(--spacing-lg);
   color: var(--primary-color);
   text-align: center;
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.02em;
 }
 
 .section-content {
