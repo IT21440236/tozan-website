@@ -2847,6 +2847,21 @@
       Your browser does not support the audio element.
     </audio>
     
+    <!-- Audio Control Button (shown if autoplay is blocked) -->
+    <div id="audio-control-banner" class="audio-control-banner" style="display: none;">
+      <div class="container">
+        <div class="alert alert-info d-flex align-items-center justify-content-between mb-0" role="alert">
+          <div class="d-flex align-items-center">
+            <i class="bi bi-music-note-beamed me-3" style="font-size: 1.5rem;"></i>
+            <span><strong>Gallery Music:</strong> Click to play "Song of Cathay"</span>
+          </div>
+          <button id="audio-play-btn" class="btn btn-primary btn-sm">
+            <i class="bi bi-play-fill me-1"></i> Play Music
+          </button>
+        </div>
+      </div>
+    </div>
+    
     <div class="container">
       <h2 class="section-title">Gallery</h2>
       <div class="gallery-filters mb-4">
