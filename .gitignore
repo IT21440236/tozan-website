@@ -33,3 +33,6 @@ yarn-error.log*
 # Temporary files
 *.tmp
 .cache/
+
+# Gallery converted images
+assets/images/gallery/converted/
