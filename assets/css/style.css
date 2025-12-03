@@ -1137,3 +1137,102 @@ video {
   max-width: 100%;
   height: auto;
 }
+
+/* ============================================================================
+   REQUIREMENTS SECTION - Enhanced Styling
+   ============================================================================ */
+
+/* Hover lift effect for requirement cards */
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Requirement item hover effect */
+.requirement-item {
+  transition: all 0.2s ease;
+}
+
+.requirement-item:hover {
+  background-color: #e9ecef !important;
+  transform: translateX(5px);
+}
+
+/* Gradient backgrounds for card headers */
+.bg-gradient {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.bg-gradient::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: shimmer 3s infinite;
+  z-index: -1;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(10%, 10%);
+  }
+}
+
+/* Card header icon styling */
+.card-header .display-4 {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.card-header h4 {
+  position: relative;
+  z-index: 2;
+}
+
+.card-header i {
+  position: relative;
+  z-index: 2;
+}
+
+/* Icon styling in requirements */
+.requirements-list .bi-check-circle-fill {
+  flex-shrink: 0;
+}
+
+/* Card body padding adjustment for better spacing */
+.requirements-list .requirement-item:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Responsive adjustments for requirements section */
+@media (max-width: 991px) {
+  .hover-lift:hover {
+    transform: translateY(-5px);
+  }
+}
+
+@media (max-width: 767px) {
+  .requirements-list .requirement-item {
+    font-size: 0.9rem;
+  }
+  
+  .card-header h4 {
+    font-size: 1.25rem;
+  }
+  
+  .card-header .display-4 {
+    font-size: 2.5rem;
+  }
+}
