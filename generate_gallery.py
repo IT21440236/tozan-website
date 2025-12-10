@@ -68,8 +68,10 @@ def generate_gallery_html():
         print("❌ Converted directory not found!")
         return
     
-    # Get all JPG files
-    images = sorted(converted_dir.glob('*.jpg'))
+    # Get all JPG and PNG files
+    jpg_images = list(converted_dir.glob('*.jpg'))
+    png_images = list(converted_dir.glob('*.png')) + list(converted_dir.glob('*.PNG'))
+    images = sorted(jpg_images + png_images)
     
     if not images:
         print("❌ No images found!")

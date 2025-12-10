@@ -563,12 +563,89 @@
 
   <!-- Pilgrimage Details Section -->
   <section id="details" class="content-section">
-    <div class="container">
+    <!-- Sleek Sidebar Navigation -->
+    <div class="details-sidebar" id="details-sidebar">
+      <div class="sidebar-header">
+        <i class="bi bi-list-ul"></i>
+        <span class="sidebar-title">Navigation</span>
+      </div>
+      <div class="sidebar-progress">
+        <div class="sidebar-progress-bar" id="sidebar-progress"></div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#preface" class="sidebar-link" data-section="preface">
+          <i class="bi bi-book"></i>
+          <span>Preface</span>
+        </a>
+        <a href="#visit-categories" class="sidebar-link" data-section="visit-categories">
+          <i class="bi bi-people-fill"></i>
+          <span>Visit Categories</span>
+        </a>
+        <a href="#approval-process" class="sidebar-link" data-section="approval-process">
+          <i class="bi bi-file-earmark-check"></i>
+          <span>Approval Process</span>
+        </a>
+        <a href="#procedure-points" class="sidebar-link" data-section="procedure-points">
+          <i class="bi bi-list-ol"></i>
+          <span>Procedure Points</span>
+        </a>
+        <a href="#preparation" class="sidebar-link" data-section="preparation">
+          <i class="bi bi-gear-fill"></i>
+          <span>Preparation</span>
+        </a>
+        <a href="#requirements" class="sidebar-link" data-section="requirements">
+          <i class="bi bi-clipboard-check"></i>
+          <span>Requirements</span>
+        </a>
+        <a href="#visa-application" class="sidebar-link" data-section="visa-application">
+          <i class="bi bi-passport"></i>
+          <span>Visa Application</span>
+        </a>
+        <a href="#familiarization" class="sidebar-link" data-section="familiarization">
+          <i class="bi bi-book-half"></i>
+          <span>Familiarization</span>
+        </a>
+        <a href="#qa-section" class="sidebar-link" data-section="qa-section">
+          <i class="bi bi-question-circle"></i>
+          <span>Q&A</span>
+        </a>
+        <a href="#visa-behavior" class="sidebar-link" data-section="visa-behavior">
+          <i class="bi bi-person-check"></i>
+          <span>Visa Behavior</span>
+        </a>
+        <a href="#packing" class="sidebar-link" data-section="packing">
+          <i class="bi bi-luggage"></i>
+          <span>Packing Guide</span>
+        </a>
+        <a href="#journey-stages" class="sidebar-link" data-section="journey-stages">
+          <i class="bi bi-map"></i>
+          <span>Journey Stages</span>
+        </a>
+        <a href="#temple-activities" class="sidebar-link" data-section="temple-activities">
+          <i class="bi bi-calendar-event"></i>
+          <span>Temple Activities</span>
+        </a>
+        <a href="#temple-places" class="sidebar-link" data-section="temple-places">
+          <i class="bi bi-map"></i>
+          <span>Temple Places</span>
+        </a>
+        <a href="#visual-guide" class="sidebar-link" data-section="visual-guide">
+          <i class="bi bi-images"></i>
+          <span>Visual Guide</span>
+        </a>
+        <a href="#annexures" class="sidebar-link" data-section="annexures">
+          <i class="bi bi-folder"></i>
+          <span>Annexures</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="container details-content">
       <h2 class="section-title">Pilgrimage Details</h2>
 
       <!-- Preface -->
-      <div class="section-content mb-5">
-        <h3 class="mb-4"><i class="bi bi-book"></i> Preface</h3>
+      <div id="preface" class="section-content mb-5 detail-section">
+        <h3 class="mb-4 section-header"><i class="bi bi-book"></i> Preface</h3>
         <div class="preface-content bg-light p-4 rounded">
           <p class="lead">
             Tozan literally means "to climb the mountain." In our practice, it means the pilgrimage to Japan, to worship
@@ -609,8 +686,8 @@
       </div>
 
       <!-- TOZAN Visit Categories -->
-      <div class="section-content mb-5">
-        <h3 class="mb-4"><i class="bi bi-people-fill"></i> TOZAN Visit Categories</h3>
+      <div id="visit-categories" class="section-content mb-5 detail-section">
+        <h3 class="mb-4 section-header"><i class="bi bi-people-fill"></i> TOZAN Visit Categories</h3>
 
         <div class="row">
           <div class="col-lg-4 mb-4">
@@ -665,8 +742,8 @@
       </div>
 
       <!-- Requesting and Obtaining Approval from Head Temple -->
-      <div class="section-content mb-5">
-        <h3 class="mb-4"><i class="bi bi-file-earmark-check"></i> Requesting and Obtaining Approval from Head Temple
+      <div id="approval-process" class="section-content mb-5 detail-section">
+        <h3 class="mb-4 section-header"><i class="bi bi-file-earmark-check"></i> Requesting and Obtaining Approval from Head Temple
         </h3>
         <div class="card">
           <div class="card-body">
@@ -722,8 +799,8 @@
       </div>
 
       <!-- Tozan Procedure in Point Form -->
-      <div class="section-content mb-5">
-        <h3 class="mb-4"><i class="bi bi-list-ol"></i> Tozan Procedure in Point Form</h3>
+      <div id="procedure-points" class="section-content mb-5 detail-section">
+        <h3 class="mb-4 section-header"><i class="bi bi-list-ol"></i> Tozan Procedure in Point Form</h3>
         <div class="card">
           <div class="card-body">
             <ol class="procedure-list">
@@ -759,8 +836,8 @@
       </div>
 
       <!-- Preparation Steps -->
-      <div class="section-content mb-5">
-        <h3 class="mb-4"><i class="bi bi-gear-fill"></i> Preparation</h3>
+      <div id="preparation" class="section-content mb-5 detail-section">
+        <h3 class="mb-4 section-header"><i class="bi bi-gear-fill"></i> Preparation</h3>
         <div class="card">
           <div class="card-body">
             <p class="lead">After receiving the approval, the communicator will inform the members to submit required
@@ -792,8 +869,8 @@
       </div>
 
       <!-- Requirements Section -->
-      <div class="section-content mb-5">
-        <h3 class="mb-4 text-center"><i class="bi bi-clipboard-check"></i> Requirements</h3>
+      <div id="requirements" class="section-content mb-5 detail-section">
+        <h3 class="mb-4 text-center section-header"><i class="bi bi-clipboard-check"></i> Requirements</h3>
 
         <p class="lead mb-5 text-center">Requirements can mainly divide into three categories.</p>
 
@@ -1070,8 +1147,8 @@
       </div>
 
       <!-- Applying for Visa -->
-      <div class="section-content mb-5">
-        <h3 class="mb-4"><i class="bi bi-passport"></i> Applying for Visa</h3>
+      <div id="visa-application" class="section-content mb-5 detail-section">
+        <h3 class="mb-4 section-header"><i class="bi bi-passport"></i> Applying for Visa</h3>
         <div class="card">
           <div class="card-body">
             <p class="lead">Find the visa process and agents fee through the website. Take money when you go to submit
@@ -1124,8 +1201,8 @@
       </div>
 
       <!-- Familiarization for Tozan Pilgrimage -->
-      <div class="section-content mb-5">
-        <h3 class="mb-4"><i class="bi bi-book-half"></i> Familiarization for Tozan Pilgrimage</h3>
+      <div id="familiarization" class="section-content mb-5 detail-section">
+        <h3 class="mb-4 section-header"><i class="bi bi-book-half"></i> Familiarization for Tozan Pilgrimage</h3>
         <div class="card">
           <div class="card-body">
             <p class="lead">Prepare a checklist and discuss with members who have gone on Tozan. Check list given in
@@ -1181,8 +1258,8 @@
       </div>
 
       <!-- Important Questions & Answers -->
-      <div class="section-content mb-5">
-        <h3 class="mb-4"><i class="bi bi-question-circle"></i> Important Questions & Answers</h3>
+      <div id="qa-section" class="section-content mb-5 detail-section">
+        <h3 class="mb-4 section-header"><i class="bi bi-question-circle"></i> Important Questions & Answers</h3>
         <div class="accordion" id="qaAccordion">
 
           <div class="accordion-item">
@@ -1243,8 +1320,8 @@
       </div>
 
       <!-- Visa Process Behavior -->
-      <div class="section-content mb-5">
-        <h3 class="mb-4"><i class="bi bi-person-check"></i> Behavior During Visa Process</h3>
+      <div id="visa-behavior" class="section-content mb-5 detail-section">
+        <h3 class="mb-4 section-header"><i class="bi bi-person-check"></i> Behavior During Visa Process</h3>
         <div class="card">
           <div class="card-body">
             <p class="lead">You should behave in a well manner as it is the first place where your visa been process.
@@ -1312,8 +1389,8 @@
       </div>
 
       <!-- Packing Instructions -->
-      <div class="section-content mb-5">
-        <h3 class="mb-4"><i class="bi bi-luggage"></i> Packing Instructions</h3>
+      <div id="packing" class="section-content mb-5 detail-section">
+        <h3 class="mb-4 section-header"><i class="bi bi-luggage"></i> Packing Instructions</h3>
         <div class="card">
           <div class="card-body">
             <div class="alert alert-primary">
@@ -1349,8 +1426,8 @@
     </div>
 
     <!-- Journey Stages -->
-    <div class="section-content mb-5">
-      <h3 class="mb-4"><i class="bi bi-map"></i> Journey Stages</h3>
+    <div id="journey-stages" class="section-content mb-5 detail-section">
+      <h3 class="mb-4 section-header"><i class="bi bi-map"></i> Journey Stages</h3>
       <div class="accordion" id="journeyAccordion">
 
         <!-- Stage 1: Leaving Sri Lanka -->
@@ -1726,8 +1803,8 @@
     </div>
 
     <!-- Temple Activities and Ceremonies -->
-    <div class="section-content mb-5">
-      <h3 class="mb-4"><i class="bi bi-calendar-event"></i> Temple Activities and Ceremonies</h3>
+    <div id="temple-activities" class="section-content mb-5 detail-section">
+      <h3 class="mb-4 section-header"><i class="bi bi-calendar-event"></i> Temple Activities and Ceremonies</h3>
 
       <!-- Important Reminders -->
       <div class="alert alert-warning mb-4">
@@ -1849,8 +1926,8 @@
     </div>
 
     <!-- Places to Visit in Temple Premises -->
-    <div class="section-content mb-5">
-      <h3 class="mb-4"><i class="bi bi-map"></i> Places to Visit in the Temple Premises</h3>
+    <div id="temple-places" class="section-content mb-5 detail-section">
+      <h3 class="mb-4 section-header"><i class="bi bi-map"></i> Places to Visit in the Temple Premises</h3>
       <p class="lead text-center mb-4">(Refer Head Temple Map)</p>
 
       <div class="card">
@@ -1871,8 +1948,8 @@
     </div>
 
     <!-- Visual Guide - Lodging Temple Procedures -->
-    <div class="section-content mb-5">
-      <h3 class="mb-4"><i class="bi bi-images"></i> Visual Guide - Lodging Temple Procedures</h3>
+    <div id="visual-guide" class="section-content mb-5 detail-section">
+      <h3 class="mb-4 section-header"><i class="bi bi-images"></i> Visual Guide - Lodging Temple Procedures</h3>
       
       <div class="alert alert-info mb-4">
         <h6 class="alert-heading"><i class="bi bi-info-circle"></i> Important Note</h6>
@@ -2108,8 +2185,8 @@
     </div>
 
     <!-- Annexures Section -->
-    <div class="section-content mb-5">
-      <h3 class="mb-4"><i class="bi bi-folder"></i> Annexures</h3>
+    <div id="annexures" class="section-content mb-5 detail-section">
+      <h3 class="mb-4 section-header"><i class="bi bi-folder"></i> Annexures</h3>
 
     <!-- Annexure 'a' -->
     <div class="card mb-4">
