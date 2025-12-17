@@ -1786,7 +1786,7 @@ video {
 
 .gallery-group-image {
   position: relative;
-  height: 400px;
+  height: 600px;
   overflow: hidden;
 }
 
@@ -1905,7 +1905,7 @@ video {
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .gallery-group-image {
-    height: 300px;
+    height: 400px;
   }
 
   .gallery-group-content h3 {
