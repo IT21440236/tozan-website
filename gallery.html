@@ -4,51 +4,271 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tozan November 2025 Gallery - Pilgrimage Memories</title>
+  <title>Tozan November 2025 Gallery - Sacred Pilgrimage Memories</title>
+  
+  <!-- Meta Tags -->
+  <meta name="description" content="Beautiful photo gallery from our Tozan pilgrimage to Taisekiji Head Temple in November 2025. Sacred memories from Japan.">
+  <meta name="keywords" content="Tozan, Nichiren Shoshu, Taisekiji, pilgrimage, Japan, Mt. Fuji, Buddhist temple">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📸</text></svg>">
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  
   <!-- GLightbox CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+  
   <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
 
   <style>
-    .gallery-header {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      padding: 4rem 0 2rem;
-      margin-bottom: 3rem;
+    /* Modern Gallery Styles */
+    :root {
+      --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
+      --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.15);
+      --shadow-heavy: 0 12px 35px rgba(0, 0, 0, 0.2);
+      --border-radius: 15px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
+    body {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* Header Styles */
+    .gallery-header {
+      background: var(--primary-gradient);
+      color: white;
+      padding: 4rem 0 3rem;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      opacity: 0.3;
+    }
+
+    .gallery-header .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .gallery-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .gallery-subtitle {
+      font-size: 1.25rem;
+      opacity: 0.95;
+      margin-bottom: 2rem;
+    }
+
+    .gallery-stats {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      border-radius: var(--border-radius);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .stat-item:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    /* Back Button */
+    .back-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      background: var(--primary-gradient) !important;
+      border: none !important;
+      color: white !important;
+      padding: 12px 20px;
+      border-radius: 50px;
+      box-shadow: var(--shadow-medium);
+      transition: var(--transition);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+    }
+
+    .back-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-heavy);
+      color: white !important;
+    }
+
+    /* Filter Navigation */
+    .filter-nav {
+      background: white;
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      margin-bottom: 3rem;
+      box-shadow: var(--shadow-light);
+      position: sticky;
+      top: 20px;
+      z-index: 100;
+    }
+
+    .filter-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: #f8f9fa;
+      border: 2px solid transparent;
+      color: #6c757d;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      transition: var(--transition);
+      font-weight: 500;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--primary-gradient);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-medium);
+      text-decoration: none;
+    }
+
+    /* Gallery Categories */
+    .gallery-category {
+      margin-bottom: 4rem;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gallery-category:nth-child(even) {
+      animation-delay: 0.1s;
+    }
+
+    .gallery-category:nth-child(odd) {
+      animation-delay: 0.2s;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .category-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 3px solid #e9ecef;
+      position: relative;
+    }
+
+    .category-title::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--primary-gradient);
+      border-radius: 2px;
+    }
+
+    .category-title i {
+      color: #667eea;
+      font-size: 1.5rem;
+    }
+
+    .photo-count {
+      font-size: 1rem;
+      color: #6c757d;
+      font-weight: 400;
+      margin-left: auto;
+    }
+
+    /* Gallery Grid */
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 1.5rem;
-      margin-top: 2rem;
     }
 
     .gallery-item {
       position: relative;
-      border-radius: 15px;
+      border-radius: var(--border-radius);
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-      aspect-ratio: 1;
+      box-shadow: var(--shadow-light);
+      transition: var(--transition);
+      aspect-ratio: 4/3;
+      background: white;
     }
 
     .gallery-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-heavy);
     }
 
     .gallery-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.3s ease;
+      transition: var(--transition);
     }
 
     .gallery-item:hover img {
@@ -61,74 +281,199 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(0, 0, 0, 0.7);
+      background: var(--primary-gradient);
+      opacity: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      transition: var(--transition);
     }
 
     .gallery-item:hover .gallery-overlay {
-      opacity: 1;
+      opacity: 0.9;
     }
 
     .gallery-overlay i {
       color: white;
-      font-size: 2rem;
+      font-size: 2.5rem;
+      transform: scale(0.8);
+      transition: var(--transition);
     }
 
+    .gallery-item:hover .gallery-overlay i {
+      transform: scale(1);
+    }
+
+    /* Loading Animation */
     .loading-spinner {
       text-align: center;
-      padding: 3rem;
+      padding: 4rem;
     }
 
-    .back-btn {
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #667eea;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .gallery-title {
+        font-size: 2.5rem;
+      }
+
+      .gallery-stats {
+        gap: 1rem;
+      }
+
+      .stat-item {
+        padding: 0.75rem 1.5rem;
+      }
+
+      .filter-buttons {
+        gap: 0.5rem;
+      }
+
+      .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+      }
+
+      .category-title {
+        font-size: 1.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      .photo-count {
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .back-btn {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+      }
+    }
+
+
+
+    /* Scroll to Top Button */
+    .scroll-top {
       position: fixed;
-      top: 20px;
-      left: 20px;
+      bottom: 30px;
+      right: 30px;
+      background: var(--primary-gradient);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-medium);
+      transition: var(--transition);
+      opacity: 0;
+      visibility: hidden;
       z-index: 1000;
-      background: #667eea !important;
-      border-color: #667eea !important;
-      color: white !important;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
 
-    .back-btn:hover {
-      background: #5a6fd8 !important;
-      border-color: #5a6fd8 !important;
-      color: white !important;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    .scroll-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .scroll-top:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-heavy);
     }
   </style>
 </head>
 
 <body>
   <!-- Back Button -->
-  <a href="index.html#gallery" class="btn btn-primary back-btn">
-    <i class="bi bi-arrow-left"></i> Back to Main
+  <a href="index.html#gallery" class="back-btn">
+    <i class="bi bi-arrow-left"></i>
+    <span>Back to Main</span>
   </a>
 
   <!-- Gallery Header -->
   <div class="gallery-header">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-8">
-          <h1><i class="bi bi-camera-fill me-3"></i>Tozan November 2025</h1>
-          <p class="lead mb-0">Sacred pilgrimage memories from our journey to Taisekiji Head Temple</p>
+    <div class="container text-center">
+      <h1 class="gallery-title">
+        <i class="bi bi-camera-fill me-3"></i>
+        Tozan November 2025
+      </h1>
+      <p class="gallery-subtitle">
+        Sacred pilgrimage memories from our spiritual journey to Taisekiji Head Temple
+      </p>
+      
+      <div class="gallery-stats">
+        <div class="stat-item">
+          <span class="stat-number">329</span>
+          <span class="stat-label">Total Photos</span>
         </div>
-        <div class="col-md-4 text-md-end">
-          <div class="gallery-stats">
-            <span class="badge bg-light text-dark me-2 fs-6">
-              <i class="bi bi-images"></i> <span id="photo-count">Loading...</span> Photos
-            </span>
-            <span class="badge bg-light text-dark fs-6">
-              <i class="bi bi-geo-alt"></i> Japan
-            </span>
-          </div>
+        <div class="stat-item">
+          <span class="stat-number">8</span>
+          <span class="stat-label">Categories</span>
         </div>
+        <div class="stat-item">
+          <span class="stat-number">10</span>
+          <span class="stat-label">Days Journey</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filter Navigation -->
+  <div class="container">
+    <div class="filter-nav">
+      <div class="filter-buttons">
+        <a href="#all" class="filter-btn active" data-filter="all">
+          <i class="bi bi-grid-3x3-gap"></i> All Photos
+        </a>
+        <a href="#members-and-group-photos" class="filter-btn" data-filter="members">
+          <i class="bi bi-people"></i> Members (99)
+        </a>
+        <a href="#head-temple-and-premises" class="filter-btn" data-filter="temple">
+          <i class="bi bi-building"></i> Temple (118)
+        </a>
+        <a href="#mount-fuji-views" class="filter-btn" data-filter="fuji">
+          <i class="bi bi-mountain"></i> Mt. Fuji (14)
+        </a>
+        <a href="#ceremony-and-special-events" class="filter-btn" data-filter="ceremony">
+          <i class="bi bi-calendar-event"></i> Ceremony (31)
+        </a>
+        <a href="#travel-and-journey" class="filter-btn" data-filter="travel">
+          <i class="bi bi-airplane"></i> Travel (21)
+        </a>
+        <a href="#hotels-and-accommodation" class="filter-btn" data-filter="hotels">
+          <i class="bi bi-house-door"></i> Hotels (17)
+        </a>
+        <a href="#local-places-and-food" class="filter-btn" data-filter="local">
+          <i class="bi bi-geo-alt"></i> Local (21)
+        </a>
       </div>
     </div>
   </div>
@@ -137,214 +482,545 @@
   <div class="container">
     <!-- Loading Spinner -->
     <div id="loading" class="loading-spinner">
-      <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Loading photos...</span>
+      <div class="spinner"></div>
+      <h4>Loading Sacred Memories...</h4>
+      <p class="text-muted">Preparing your pilgrimage photo gallery</p>
+    </div>
+
+    <!-- Gallery Categories -->
+    <div id="gallery-content">
+    <!-- Members & Group Photos -->
+    <div class="gallery-category" id="members-and-group-photos">
+      <h3 class="category-title">
+        <i class="bi bi-people"></i> Members & Group Photos
+        <span class="photo-count">(99 photos)</span>
+      </h3>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/member-near-water-fall-at-fujiyen-hotel-1.jpg" class="glightbox" data-gallery="members">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/member-near-water-fall-at-fujiyen-hotel-1.jpg" alt="Member Near Water Fall At Fujiyen Hotel 1" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/members-1.jpg" class="glightbox" data-gallery="members">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/members-1.jpg" alt="Members 1" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/members-2.jpg" class="glightbox" data-gallery="members">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/members-2.jpg" alt="Members 2" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/members-departing-fujiyen-hotel-for-ceremony-2.jpg" class="glightbox" data-gallery="members">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/members-departing-fujiyen-hotel-for-ceremony-2.jpg" alt="Members Departing Fujiyen Hotel For Ceremony 2" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
       </div>
-      <p class="mt-3">Loading beautiful memories...</p>
     </div>
 
-    <!-- Gallery Grid -->
-    <div id="gallery-grid" class="gallery-grid" style="display: none;">
-      <!-- Images will be loaded dynamically here -->
+    <!-- Head Temple & Premises -->
+    <div class="gallery-category" id="head-temple-and-premises">
+      <h3 class="category-title">
+        <i class="bi bi-building"></i> Head Temple & Premises
+        <span class="photo-count">(118 photos)</span>
+      </h3>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/headtemple-1.jpg" class="glightbox" data-gallery="temple">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/headtemple-1.jpg" alt="Head Temple 1" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/headtemple-12.jpg" class="glightbox" data-gallery="temple">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/headtemple-12.jpg" alt="Head Temple 12" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/temple-premises-1.jpg" class="glightbox" data-gallery="temple">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/temple-premises-1.jpg" alt="Temple Premises 1" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/tokohibo-1.jpg" class="glightbox" data-gallery="temple">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/tokohibo-1.jpg" alt="Tokohibo 1" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+      </div>
     </div>
 
-    <!-- Error Message -->
-    <div id="error-message" class="alert alert-warning" style="display: none;">
-      <h5><i class="bi bi-exclamation-triangle"></i> Unable to load photos</h5>
-      <p>We're having trouble loading the gallery from Cloudflare. Please try refreshing the page.</p>
+    <!-- Mount Fuji Views -->
+    <div class="gallery-category" id="mount-fuji-views">
+      <h3 class="category-title">
+        <i class="bi bi-mountain"></i> Mount Fuji Views
+        <span class="photo-count">(14 photos)</span>
+      </h3>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/mount-fuji-1.jpg" class="glightbox" data-gallery="fuji">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/mount-fuji-1.jpg" alt="Mount Fuji 1" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/mount-fuji-10.jpg" class="glightbox" data-gallery="fuji">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/mount-fuji-10.jpg" alt="Mount Fuji 10" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/mount-fuji-5.jpg" class="glightbox" data-gallery="fuji">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/mount-fuji-5.jpg" alt="Mount Fuji 5" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/mount-fuji-8.jpg" class="glightbox" data-gallery="fuji">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/mount-fuji-8.jpg" alt="Mount Fuji 8" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+      </div>
     </div>
+
+    <!-- Ceremony & Special Events -->
+    <div class="gallery-category" id="ceremony-and-special-events">
+      <h3 class="category-title">
+        <i class="bi bi-calendar-event"></i> Ceremony & Special Events
+        <span class="photo-count">(31 photos)</span>
+      </h3>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/members-ceremony-day-1.jpg" class="glightbox" data-gallery="ceremony">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/members-ceremony-day-1.jpg" alt="Members Ceremony Day 1" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/members-ceremony-day-15.jpg" class="glightbox" data-gallery="ceremony">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/members-ceremony-day-15.jpg" alt="Members Ceremony Day 15" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/members-ceremony-day-20.jpg" class="glightbox" data-gallery="ceremony">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/members-ceremony-day-20.jpg" alt="Members Ceremony Day 20" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/members-ceremony-day-5.jpg" class="glightbox" data-gallery="ceremony">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/members-ceremony-day-5.jpg" alt="Members Ceremony Day 5" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Travel & Journey -->
+    <div class="gallery-category" id="travel-and-journey">
+      <h3 class="category-title">
+        <i class="bi bi-airplane"></i> Travel & Journey
+        <span class="photo-count">(21 photos)</span>
+      </h3>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/hongkong-airport-1.jpg" class="glightbox" data-gallery="travel">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/hongkong-airport-1.jpg" alt="Hong Kong Airport 1" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/cathay-pacific-window-view-2.jpg" class="glightbox" data-gallery="travel">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/cathay-pacific-window-view-2.jpg" alt="Cathay Pacific Window View 2" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/narita-airport.jpg" class="glightbox" data-gallery="travel">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/narita-airport.jpg" alt="Narita Airport" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/CX-520.jpg" class="glightbox" data-gallery="travel">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/CX-520.jpg" alt="CX 520" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hotels & Accommodation -->
+    <div class="gallery-category" id="hotels-and-accommodation">
+      <h3 class="category-title">
+        <i class="bi bi-house-door"></i> Hotels & Accommodation
+        <span class="photo-count">(17 photos)</span>
+      </h3>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/Fujiyen-hotel-1.jpg" class="glightbox" data-gallery="hotels">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/Fujiyen-hotel-1.jpg" alt="Fujiyen Hotel 1" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/narita-tobu-hotel-1.jpg" class="glightbox" data-gallery="hotels">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/narita-tobu-hotel-1.jpg" alt="Narita Tobu Hotel 1" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/Fujiyen-hotel-at-night.jpg" class="glightbox" data-gallery="hotels">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/Fujiyen-hotel-at-night.jpg" alt="Fujiyen Hotel At Night" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/waterfall-near-fujiyen-hotel.jpg" class="glightbox" data-gallery="hotels">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/waterfall-near-fujiyen-hotel.jpg" alt="Waterfall Near Fujiyen Hotel" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Local Places & Food -->
+    <div class="gallery-category" id="local-places-and-food">
+      <h3 class="category-title">
+        <i class="bi bi-geo-alt"></i> Local Places & Food
+        <span class="photo-count">(21 photos)</span>
+      </h3>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/Aeon-mall-fujinomiya-1.jpg" class="glightbox" data-gallery="local">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/Aeon-mall-fujinomiya-1.jpg" alt="Aeon Mall Fujinomiya 1" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/fujinomiya-streets-1.jpg" class="glightbox" data-gallery="local">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/fujinomiya-streets-1.jpg" alt="Fujinomiya Streets 1" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/seven-eleven-foods-1.jpg" class="glightbox" data-gallery="local">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/seven-eleven-foods-1.jpg" alt="Seven Eleven Foods 1" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/vending-machine.jpg" class="glightbox" data-gallery="local">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/vending-machine.jpg" alt="Vending Machine" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Temple Activities -->
+    <div class="gallery-category" id="temple-activities">
+      <h3 class="category-title">
+        <i class="bi bi-bookmark-star"></i> Temple Activities
+        <span class="photo-count">(8 photos)</span>
+      </h3>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/gokai-list.jpg" class="glightbox" data-gallery="activities">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/gokai-list.jpg" alt="Gokai List" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/gokai-tickets.jpg" class="glightbox" data-gallery="activities">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/gokai-tickets.jpg" alt="Gokai Tickets" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/map-of-taisekiji.jpg" class="glightbox" data-gallery="activities">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/map-of-taisekiji.jpg" alt="Map Of Taisekiji" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/butsugu-shop.jpg" class="glightbox" data-gallery="activities">
+            <img src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/butsugu-shop.jpg" alt="Butsugu Shop" loading="lazy" />
+            <div class="gallery-overlay">
+              <i class="bi bi-zoom-in"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
   </div>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-top" id="scrollTop">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <!-- Audio Element for Background Music -->
+  <audio id="backgroundMusic" loop preload="auto" autoplay>
+    <source src="assets/sounds/Song of Cathay.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
   <!-- GLightbox JS -->
   <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
   <script>
-    // Cloudflare R2 Configuration
-    const CLOUDFLARE_BASE_URL = 'https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/images/';
+    // Simple Background Music Control
+    const backgroundMusic = document.getElementById('backgroundMusic');
+    
+    // Set volume
+    backgroundMusic.volume = 0.6;
+    
+    // Try to play music when page loads
+    function startMusic() {
+      backgroundMusic.play().catch(error => {
+        console.log('Auto-play prevented by browser:', error);
+        // If autoplay fails, try again on first user interaction
+        document.addEventListener('click', () => {
+          backgroundMusic.play().catch(() => {});
+        }, { once: true });
+      });
+    }
 
-    // Common image extensions
-    const IMAGE_EXTENSIONS = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
-
-    // Comprehensive image list based on your Cloudflare R2 bucket
-    // Generated from the patterns visible in your bucket
-    const KNOWN_IMAGES = [
-      // Members photos
-      'member-near-water-fall-at-fujiyen-hotel-1.jpg', 'member-near-water-fall-at-fujiyen-hotel-2.jpg',
-      'member-near-water-fall-at-fujiyen-hotel-3.jpg', 'member-near-water-fall-at-fujiyen-hotel-4.jpg',
-
-      // Temple and premises
-      'temple-1.jpg', 'temple-2.jpg', 'temple-3.jpg', 'temple-4.jpg',
-      'headtemple-1.jpg', 'headtemple-2.jpg', 'headtemple-3.jpg', 'headtemple-4.jpg', 'headtemple-5.jpg',
-      'headtemple-6.jpg', 'headtemple-7.jpg', 'headtemple-8.jpg', 'headtemple-9.jpg', 'headtemple-10.jpg',
-      'headtemple-11.jpg', 'headtemple-12.jpg', 'headtemple-13.jpg', 'headtemple-14.jpg', 'headtemple-15.jpg', 'headtemple-16.jpg',
-
-      // Mount Fuji
-      'mount-fuji-1.jpg', 'mount-fuji-2.jpg', 'mount-fuji-3.jpg', 'mount-fuji-4.jpg', 'mount-fuji-5.jpg',
-      'mount-fuji-6.jpg', 'mount-fuji-7.jpg', 'mount-fuji-8.jpg', 'mount-fuji-9.jpg', 'mount-fuji-10.jpg',
-      'mount-fuji-11.jpg', 'mount-fuji-12.jpg',
-
-      // Hotels and accommodation
-      'narita-tobu-hotel-1.jpg', 'narita-tobu-hotel-2.jpg', 'narita-tobu-hotel-3.jpg', 'narita-tobu-hotel-4.jpg',
-      'narita-tobu-hotel-5.jpg', 'narita-tobu-hotel-6.jpg', 'narita-tobu-hotel-7.jpg', 'narita-tobu-hotel-8.jpg',
-      'narita-tobu-hotel-9.jpg', 'narita-tobu-hotel-10.jpg', 'narita-tobu-hotel-11.jpg',
-      'fujiyen-hotel-1.jpg', 'fujiyen-hotel-2.jpg', 'fujiyen-hotel-3.jpg', 'fujiyen-hotel-4.jpg',
-      'fujiyen-hotel-at-night.jpg',
-
-      // Travel and journey
-      'hongkong-airport-1.jpg', 'hongkong-airport-2.jpg', 'hongkong-airport-3.jpg', 'hongkong-airport-4.jpg', 'hongkong-airport-5.jpg',
-      'cathay-pacific-cmb-hongkong-meal-2.jpg', 'cathay-pacific-window-view-2.jpg', 'cathay-pacific-window-view-3.jpg',
-      'cx-520.jpg', 'hongkong-landed.jpg', 'narita-airport.jpg', 'narita-airport-pickup-vehicle.jpg',
-
-      // Temple activities
-      'tokohibo-1.jpg', 'tokohibo-2.jpg', 'tokohibo-3.jpg', 'tokohibo-4.jpg', 'tokohibo-5.jpg',
-      'tokohibo-6.jpg', 'tokohibo-8.jpg', 'tokohibo-9.jpg', 'tokohibo-10.jpg', 'tokohibo-11.jpg',
-      'tokohibo-12.jpg', 'tokohibo-13.jpg', 'tokohibo-14.jpg', 'tokohibo-15.jpg', 'tokohibo-16.jpg',
-      'seikado-1.jpg', 'seikado-2.jpg', 'seikado-3.jpg',
-
-      // Local sights and misc
-      'fujinomiya-streets-1.jpg', 'fujinomiya-streets-2.jpg', 'fujinomiya-streets-3.jpg',
-      'waterfall-near-fujiyen-hotel.jpg', 'vending-machine.jpg', 'ice-cream-vending-machine.jpg',
-      'tree.jpg', 'wagon-r-1.jpg', 'wagon-r-2.jpg'
-    ];
-
-    // Function to create comprehensive image list
-    function generateImageList() {
-      const images = [];
-
-      // Add known images
-      images.push(...KNOWN_IMAGES);
-
-      // Generate numbered variations for member photos
-      for (let i = 1; i <= 56; i++) {
-        images.push(`members-${i}.jpg`);
+    // Stop music when user leaves the page
+    window.addEventListener('beforeunload', () => {
+      if (backgroundMusic) {
+        backgroundMusic.pause();
+        backgroundMusic.currentTime = 0;
       }
+    });
 
-      // Generate temple premises variations
-      for (let i = 1; i <= 62; i++) {
-        images.push(`temple-premises-${i}.jpg`);
+    // Handle page visibility changes (pause when tab is hidden)
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        backgroundMusic.pause();
+      } else {
+        backgroundMusic.play().catch(() => {});
       }
+    });
 
-      // Generate ceremony day variations
-      for (let i = 1; i <= 27; i++) {
-        images.push(`members-ceremony-day-${i}.jpg`);
+    // Initialize GLightbox
+    const lightbox = GLightbox({
+      touchNavigation: true,
+      loop: true,
+      autoplayVideos: false,
+      plyr: {
+        css: 'https://cdn.plyr.io/3.6.8/plyr.css',
+        js: 'https://cdn.plyr.io/3.6.8/plyr.js',
+        config: {
+          ratio: '16:9',
+          youtube: {
+            noCookie: true,
+            rel: 0,
+            showinfo: 0,
+            iv_load_policy: 3,
+            modestbranding: 1
+          },
+          vimeo: {
+            byline: false,
+            portrait: false,
+            title: false,
+            speed: true,
+            transparent: false
+          }
+        }
       }
+    });
 
-      // Generate various member activity variations
-      const memberActivities = [
-        'members-at-aeon-mall-fujinomiya-', 'members-at-fujinomiya-streets-',
-        'members-at-fujiyen-dinning-', 'members-at-head-temple-', 'members-at-seikado-',
-        'members-at-tokohibo-', 'members-at-treasury-hall-', 'members-departing-fujiyen-hotel-for-ceremony-',
-        'members-last-day-at-tokohibo-', 'narita-tobu-hotel-members-leaving-'
-      ];
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryCategories = document.querySelectorAll('.gallery-category');
 
-      memberActivities.forEach(pattern => {
-        for (let i = 1; i <= 11; i++) {
-          images.push(`${pattern}${i}.jpg`);
+    filterButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // Add active class to clicked button
+        button.classList.add('active');
+        
+        const filter = button.getAttribute('data-filter');
+        
+        // Show/hide categories based on filter
+        galleryCategories.forEach(category => {
+          if (filter === 'all') {
+            category.style.display = 'block';
+          } else {
+            const categoryId = category.id;
+            if (categoryId.includes(filter) || 
+                (filter === 'members' && categoryId.includes('members')) ||
+                (filter === 'temple' && categoryId.includes('temple')) ||
+                (filter === 'fuji' && categoryId.includes('fuji')) ||
+                (filter === 'ceremony' && categoryId.includes('ceremony')) ||
+                (filter === 'travel' && categoryId.includes('travel')) ||
+                (filter === 'hotels' && categoryId.includes('hotels')) ||
+                (filter === 'local' && categoryId.includes('local'))) {
+              category.style.display = 'block';
+            } else {
+              category.style.display = 'none';
+            }
+          }
+        });
+
+        // Smooth scroll to gallery content
+        document.getElementById('gallery-content').scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      });
+    });
+
+    // Scroll to top functionality
+    const scrollTopBtn = document.getElementById('scrollTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Show gallery immediately when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+      // Hide loading spinner
+      setTimeout(() => {
+        document.getElementById('loading').style.display = 'none';
+        
+        // Start background music
+        startMusic();
+        
+        // Trigger animations
+        const categories = document.querySelectorAll('.gallery-category');
+        categories.forEach((category, index) => {
+          setTimeout(() => {
+            category.style.opacity = '1';
+            category.style.transform = 'translateY(0)';
+          }, index * 100);
+        });
+      }, 1000);
+    });
+
+    // Smooth scrolling for filter navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
         }
       });
+    });
 
-      // Add other specific images
-      const otherImages = [
-        'aeon-mall-fujinomiya-1.jpg', 'aeon-mall-fujinomiya-2.jpg',
-        'aeon-mall-fujinomiya-taxfree-shopping-guide-1.jpg',
-        'butsugu-shop.jpg', 'fast-charging-at-hongkong-airport.jpg',
-        'first-night-dinner-1.jpg', 'first-night-dinner-2.jpg',
-        'fuji-drainage-1.jpg', 'fuji-drainage-2.jpg',
-        'gokai-list.jpg', 'gokai-tickets.jpg', 'head-temple-1.jpg', 'head-temple-2.jpg',
-        'map-of-taisekiji.jpg', 'members-buying-gokai-ticekts.jpg',
-        'members-taking-shortcut-to-temple.jpg', 'on-the-way-to-fujinomiya.jpg',
-        'pagoda-1.jpg', 'pagoda-2.jpg', 'salmon-gate-1.jpg', 'salmon-gate-2.jpg',
-        'salmon-gate-3.jpg', 'salmon-gate-4.jpg', 'salmon-gate-5.jpg', 'salmon-gate-6.jpg',
-        'seven-eleven-foods-1.jpg', 'seven-eleven-foods-3.jpg', 'sl-food-at-fujiyen.jpg',
-        'tokohibo-dinning-1.jpg', 'tokohibo-dinning-2.jpg', 'tokohibo-dinning-3.jpg', 'tokohibo-dinning-4.jpg',
-        'tokohibo-shoes-on-off-area.jpg', 'treasury-hall-2.jpg', 'treasury-hall-3.jpg',
-        'treasury-hall-4.jpg', 'treasury-hall-5.jpg'
-      ];
-
-      images.push(...otherImages);
-
-      return [...new Set(images)]; // Remove duplicates
-    }
-
-    // Function to check if image exists
-    async function imageExists(url) {
-      try {
-        const response = await fetch(url, { method: 'HEAD' });
-        return response.ok;
-      } catch {
-        return false;
-      }
-    }
-
-    // Function to load gallery images
-    async function loadGallery() {
-      const galleryGrid = document.getElementById('gallery-grid');
-      const loading = document.getElementById('loading');
-      const errorMessage = document.getElementById('error-message');
-      const photoCount = document.getElementById('photo-count');
-
-      try {
-        const imageList = generateImageList();
-        const validImages = [];
-
-        // Check which images exist (limit to first 50 for performance)
-        const imagesToCheck = imageList.slice(0, 100);
-
-        for (const imageName of imagesToCheck) {
-          const imageUrl = CLOUDFLARE_BASE_URL + imageName;
-          if (await imageExists(imageUrl)) {
-            validImages.push({
-              name: imageName,
-              url: imageUrl,
-              alt: imageName.replace(/[-_]/g, ' ').replace('.jpg', '').replace('.jpeg', '').replace('.png', '')
-            });
+    // Lazy loading enhancement
+    if ('IntersectionObserver' in window) {
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src || img.src;
+            img.classList.remove('lazy');
+            imageObserver.unobserve(img);
           }
-
-          // Update count as we find images
-          photoCount.textContent = validImages.length;
-        }
-
-        if (validImages.length === 0) {
-          throw new Error('No images found');
-        }
-
-        // Create gallery items
-        validImages.forEach((image, index) => {
-          const galleryItem = document.createElement('div');
-          galleryItem.className = 'gallery-item';
-          galleryItem.innerHTML = `
-            <a href="${image.url}" class="glightbox" data-gallery="tozan-gallery">
-              <img src="${image.url}" alt="${image.alt}" loading="lazy" />
-              <div class="gallery-overlay">
-                <i class="bi bi-zoom-in"></i>
-              </div>
-            </a>
-          `;
-          galleryGrid.appendChild(galleryItem);
         });
+      });
 
-        // Initialize lightbox
-        const lightbox = GLightbox({
-          touchNavigation: true,
-          loop: true,
-          autoplayVideos: false,
-        });
-
-        // Show gallery
-        loading.style.display = 'none';
-        galleryGrid.style.display = 'grid';
-
-      } catch (error) {
-        console.error('Error loading gallery:', error);
-        loading.style.display = 'none';
-        errorMessage.style.display = 'block';
-      }
+      document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+        imageObserver.observe(img);
+      });
     }
-
-    // Load gallery when page loads
-    document.addEventListener('DOMContentLoaded', loadGallery);
   </script>
 </body>
 
