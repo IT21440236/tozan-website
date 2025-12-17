@@ -408,6 +408,98 @@
       transform: translateY(-3px);
       box-shadow: var(--shadow-heavy);
     }
+
+    /* Performance System Styles */
+    .gallery-performance-enabled {
+      /* Enhanced gallery with performance optimizations */
+    }
+
+    .gallery-item img.loading {
+      opacity: 0.5;
+      filter: blur(2px);
+      transition: all 0.3s ease;
+    }
+
+    .gallery-item img.loaded {
+      opacity: 1;
+      filter: none;
+      transition: all 0.3s ease;
+    }
+
+    .gallery-item img.error {
+      opacity: 0.3;
+      filter: grayscale(100%);
+    }
+
+    .gallery-item img.error::after {
+      content: '⚠️ Failed to load';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 0, 0, 0.8);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    /* Performance Dashboard Styles */
+    .performance-dashboard {
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .performance-dashboard:hover {
+      background: rgba(0, 0, 0, 0.95);
+    }
+
+    /* Progressive Loading Indicators */
+    .gallery-loading-enhanced {
+      position: relative;
+    }
+
+    .gallery-loading-enhanced::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--primary-gradient), transparent);
+      animation: loading-sweep 2s infinite;
+    }
+
+    @keyframes loading-sweep {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    /* Memory Usage Indicator */
+    .memory-usage-indicator {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-family: monospace;
+      z-index: 9999;
+      display: none;
+    }
+
+    .memory-usage-indicator.warning {
+      background: rgba(255, 165, 0, 0.9);
+      color: black;
+    }
+
+    .memory-usage-indicator.critical {
+      background: rgba(255, 0, 0, 0.9);
+      color: white;
+    }
   </style>
 </head>
 
@@ -441,6 +533,10 @@
         <div class="stat-item">
           <span class="stat-number">10</span>
           <span class="stat-label">Days Journey</span>
+        </div>
+        <div class="stat-item" id="performance-stat" style="display: none;">
+          <span class="stat-number" id="performance-number">0ms</span>
+          <span class="stat-label">Avg Load Time</span>
         </div>
       </div>
     </div>
@@ -3220,6 +3316,9 @@
   <!-- GLightbox JS -->
   <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
+  <!-- Gallery Performance Optimization System -->
+  <script src="assets/js/gallery-performance.js"></script>
+
   <script>
     // Simple Background Music Control
     const backgroundMusic = document.getElementById('backgroundMusic');
@@ -3364,6 +3463,58 @@
           }, index * 100);
         });
       }, 1000);
+    });
+
+    // Enhanced performance integration
+    window.addEventListener('gallery-performance-ready', (event) => {
+      console.log('Gallery Performance System is ready');
+      
+      // Add memory usage indicator
+      const memoryIndicator = document.createElement('div');
+      memoryIndicator.className = 'memory-usage-indicator';
+      memoryIndicator.textContent = 'Memory: 0MB';
+      document.body.appendChild(memoryIndicator);
+      
+      // Update memory indicator
+      setInterval(() => {
+        if (window.galleryPerformanceMonitor) {
+          const metrics = window.galleryPerformanceMonitor.getMetrics();
+          const memoryMB = (metrics.memoryUsage / 1024 / 1024).toFixed(1);
+          memoryIndicator.textContent = `Memory: ${memoryMB}MB`;
+          
+          // Show indicator based on usage
+          if (metrics.memoryUsage > 80 * 1024 * 1024) { // 80MB
+            memoryIndicator.className = 'memory-usage-indicator critical';
+            memoryIndicator.style.display = 'block';
+          } else if (metrics.memoryUsage > 50 * 1024 * 1024) { // 50MB
+            memoryIndicator.className = 'memory-usage-indicator warning';
+            memoryIndicator.style.display = 'block';
+          } else {
+            memoryIndicator.style.display = 'none';
+          }
+        }
+      }, 5000);
+    });
+
+    // Listen for performance reports
+    window.addEventListener('gallery-performance-report', (event) => {
+      const report = event.detail;
+      
+      // Update performance stat in header
+      if (report.metrics.imageLoadTimes.size > 0) {
+        const loadTimes = Array.from(report.metrics.imageLoadTimes.values());
+        const avgLoadTime = loadTimes.reduce((sum, time) => sum + time, 0) / loadTimes.length;
+        
+        const performanceStat = document.getElementById('performance-stat');
+        const performanceNumber = document.getElementById('performance-number');
+        
+        if (performanceStat && performanceNumber) {
+          performanceNumber.textContent = `${avgLoadTime.toFixed(0)}ms`;
+          performanceStat.style.display = 'block';
+        }
+        
+        console.log(`Performance Report: Avg load time: ${avgLoadTime.toFixed(0)}ms, Cache hit rate: ${(report.metrics.cacheHitRate * 100).toFixed(1)}%`);
+      }
     });
 
     // Smooth scrolling for filter navigation

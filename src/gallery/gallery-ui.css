@@ -1,0 +1,463 @@
+/**
+ * Gallery UI Styles
+ * Styles for the gallery component, loading indicators, and error states
+ */
+
+/* Gallery Container */
+.gallery-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--gallery-columns, 3), 1fr);
+  gap: var(--gallery-gap, 16px);
+  padding: 16px;
+  min-height: var(--gallery-total-height, auto);
+}
+
+/* Image Container */
+.gallery-image-container {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f5f5f5;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gallery-image-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Gallery Image */
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-image.loaded {
+  opacity: 1;
+}
+
+.gallery-image.error {
+  opacity: 0.3;
+}
+
+/* Image Overlay */
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  color: white;
+  padding: 12px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.gallery-image-container:hover .image-overlay {
+  opacity: 1;
+}
+
+.image-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.image-category {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+/* Progress Indicator */
+.gallery-progress-indicator {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background-color: #e0e0e0;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50, #45a049);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.progress-text {
+  font-size: 0.875rem;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.progress-estimate {
+  font-size: 0.75rem;
+  color: #888;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Skeleton Placeholders */
+.gallery-skeleton-item {
+  position: relative;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.skeleton-shimmer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    #f5f5f5 0%,
+    #e0e0e0 50%,
+    #f5f5f5 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 2s infinite;
+}
+
+@keyframes skeleton-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton-content {
+  padding: 12px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.skeleton-image {
+  flex: 1;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.skeleton-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.skeleton-line {
+  height: 12px;
+  background-color: #e0e0e0;
+  border-radius: 2px;
+}
+
+.skeleton-line-1 {
+  width: 70%;
+}
+
+.skeleton-line-2 {
+  width: 50%;
+}
+
+/* Error States */
+.gallery-error-container {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #ffebee;
+  border: 1px solid #ffcdd2;
+  border-radius: 4px;
+  margin: 16px;
+  padding: 16px;
+}
+
+.error-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.error-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.error-text {
+  flex: 1;
+  color: #c62828;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.error-actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+.retry-button,
+.dismiss-button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.retry-button {
+  background-color: #1976d2;
+  color: white;
+}
+
+.retry-button:hover {
+  background-color: #1565c0;
+}
+
+.dismiss-button {
+  background-color: #e0e0e0;
+  color: #666;
+}
+
+.dismiss-button:hover {
+  background-color: #d0d0d0;
+}
+
+/* Image Error Overlay */
+.image-error-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.image-error-content {
+  text-align: center;
+  color: white;
+  padding: 16px;
+}
+
+.image-error-content .error-icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.image-error-content .error-message {
+  font-size: 0.875rem;
+  margin-bottom: 12px;
+}
+
+.image-retry-button {
+  padding: 6px 12px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.image-retry-button:hover {
+  background-color: #1565c0;
+}
+
+.error-details {
+  font-size: 0.75rem;
+  color: #ccc;
+  margin-top: 8px;
+  font-family: monospace;
+}
+
+/* Filter States */
+.gallery-grid.filter-all {
+  /* Styles for all photos view */
+}
+
+.gallery-grid.filter-landscape {
+  /* Styles for landscape photos */
+}
+
+.gallery-grid.filter-portrait {
+  /* Styles for portrait photos */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 12px;
+  }
+  
+  .gallery-progress-indicator {
+    padding: 12px;
+  }
+  
+  .progress-text {
+    font-size: 0.8125rem;
+  }
+  
+  .progress-estimate {
+    font-size: 0.6875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 8px;
+  }
+  
+  .image-overlay {
+    padding: 8px;
+  }
+  
+  .image-category {
+    font-size: 0.8125rem;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .gallery-image-container {
+    border: 2px solid #000;
+  }
+  
+  .progress-bar {
+    border: 1px solid #000;
+  }
+  
+  .skeleton-shimmer {
+    background: repeating-linear-gradient(
+      90deg,
+      #000 0px,
+      #000 2px,
+      transparent 2px,
+      transparent 4px
+    );
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .gallery-image-container {
+    transition: none;
+  }
+  
+  .gallery-image {
+    transition: none;
+  }
+  
+  .image-overlay {
+    transition: none;
+  }
+  
+  .progress-fill {
+    transition: none;
+  }
+  
+  .skeleton-shimmer {
+    animation: none;
+    background: #e0e0e0;
+  }
+  
+  .progress-fill::after {
+    animation: none;
+  }
+}
+
+/* Focus styles for accessibility */
+.gallery-image-container:focus-visible {
+  outline: 2px solid #1976d2;
+  outline-offset: 2px;
+}
+
+.retry-button:focus-visible,
+.dismiss-button:focus-visible,
+.image-retry-button:focus-visible {
+  outline: 2px solid #1976d2;
+  outline-offset: 2px;
+}
+
+/* Loading states */
+.gallery-container.loading .gallery-grid {
+  pointer-events: none;
+}
+
+.gallery-container.error .gallery-grid {
+  opacity: 0.5;
+}
+
+/* Print styles */
+@media print {
+  .gallery-progress-indicator,
+  .gallery-error-container,
+  .image-error-overlay {
+    display: none !important;
+  }
+  
+  .gallery-grid {
+    display: block;
+  }
+  
+  .gallery-image-container {
+    break-inside: avoid;
+    margin-bottom: 16px;
+  }
+}
