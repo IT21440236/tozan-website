@@ -500,6 +500,153 @@
       background: rgba(255, 0, 0, 0.9);
       color: white;
     }
+
+    /* Enhanced Video Thumbnail Styles */
+    .gallery-item video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .gallery-item:has(video) {
+      position: relative;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .gallery-item:has(video)::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, 
+        rgba(102, 126, 234, 0.8) 0%, 
+        rgba(118, 75, 162, 0.8) 100%);
+      z-index: 1;
+      opacity: 0;
+      transition: var(--transition);
+      pointer-events: none;
+    }
+
+    .gallery-item:has(video):hover::before {
+      opacity: 1;
+    }
+
+    .gallery-item:has(video) .gallery-overlay {
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(5px);
+      z-index: 2;
+    }
+
+    .gallery-item:has(video) .gallery-overlay i {
+      font-size: 3rem;
+      color: white;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      animation: pulse 2s infinite;
+      z-index: 3;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.1); opacity: 1; }
+    }
+
+    .gallery-item:has(video):hover .gallery-overlay i {
+      animation: none;
+      transform: scale(1.2);
+    }
+
+    /* Video Badge */
+    .gallery-item:has(video)::after {
+      content: 'VIDEO';
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #667eea;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      z-index: 4;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      pointer-events: none;
+    }
+
+    /* Fallback for browsers that don't support :has() */
+    .video-thumbnail {
+      position: relative;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .video-thumbnail::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, 
+        rgba(102, 126, 234, 0.8) 0%, 
+        rgba(118, 75, 162, 0.8) 100%);
+      z-index: 1;
+      opacity: 0;
+      transition: var(--transition);
+      pointer-events: none;
+    }
+
+    .video-thumbnail:hover::before {
+      opacity: 1;
+    }
+
+    .video-thumbnail .gallery-overlay {
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(5px);
+      z-index: 2;
+    }
+
+    .video-thumbnail .gallery-overlay i {
+      font-size: 3rem;
+      color: white;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      animation: pulse 2s infinite;
+      z-index: 3;
+    }
+
+    .video-thumbnail:hover .gallery-overlay i {
+      animation: none;
+      transform: scale(1.2);
+    }
+
+    .video-thumbnail::after {
+      content: 'VIDEO';
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #667eea;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      z-index: 4;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      pointer-events: none;
+    }
+
+    /* Ensure video links are clickable */
+    .video-thumbnail > a {
+      position: relative;
+      z-index: 5;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
   </style>
 </head>
 
@@ -3364,7 +3511,7 @@ a>video></video></a>a></video></a>div></div>a></i></video>i></video></a>
         <span class="photo-count">(8 videos)</span>
       </h3>
       <div class="gallery-grid">
-        <div class="gallery-item">
+        <div class="gallery-item video-thumbnail">
           <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/videos/IMG_4567.MOV" class="glightbox" data-gallery="videos">
             <video poster="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/videos/IMG_4567.MOV" loading="lazy" muted>
               <source src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/videos/IMG_4567.MOV" type="video/quicktime">
@@ -3375,7 +3522,7 @@ a>video></video></a>a></video></a>div></div>a></i></video>i></video></a>
             </div>
           </a>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item video-thumbnail">
           <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/videos/IMG_4709.MOV" class="glightbox" data-gallery="videos">
             <video poster="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/videos/IMG_4709.MOV" loading="lazy" muted>
               <source src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/videos/IMG_4709.MOV" type="video/quicktime">
@@ -3386,7 +3533,7 @@ a>video></video></a>a></video></a>div></div>a></i></video>i></video></a>
             </div>
           </a>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item video-thumbnail">
           <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/videos/IMG_4715.MOV" class="glightbox" data-gallery="videos">
             <video poster="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/videos/IMG_4715.MOV" loading="lazy" muted>
               <source src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/videos/IMG_4715.MOV" type="video/quicktime">
@@ -3397,7 +3544,7 @@ a>video></video></a>a></video></a>div></div>a></i></video>i></video></a>
             </div>
           </a>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item video-thumbnail">
           <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/videos/IMG_4833.MOV" class="glightbox" data-gallery="videos">
             <video poster="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/videos/IMG_4833.MOV" loading="lazy" muted>
               <source src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/videos/IMG_4833.MOV" type="video/quicktime">
@@ -3408,7 +3555,7 @@ a>video></video></a>a></video></a>div></div>a></i></video>i></video></a>
             </div>
           </a>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item video-thumbnail">
           <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/videos/IMG_4934.MOV" class="glightbox" data-gallery="videos">
             <video poster="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/videos/IMG_4934.MOV" loading="lazy" muted>
               <source src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/videos/IMG_4934.MOV" type="video/quicktime">
@@ -3419,7 +3566,7 @@ a>video></video></a>a></video></a>div></div>a></i></video>i></video></a>
             </div>
           </a>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item video-thumbnail">
           <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/videos/IMG_4958.MOV" class="glightbox" data-gallery="videos">
             <video poster="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/videos/IMG_4958.MOV" loading="lazy" muted>
               <source src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/videos/IMG_4958.MOV" type="video/quicktime">
@@ -3430,7 +3577,7 @@ a>video></video></a>a></video></a>div></div>a></i></video>i></video></a>
             </div>
           </a>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item video-thumbnail">
           <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/videos/IMG_4997.MOV" class="glightbox" data-gallery="videos">
             <video poster="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/videos/IMG_4997.MOV" loading="lazy" muted>
               <source src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/videos/IMG_4997.MOV" type="video/quicktime">
@@ -3441,7 +3588,7 @@ a>video></video></a>a></video></a>div></div>a></i></video>i></video></a>
             </div>
           </a>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item video-thumbnail">
           <a href="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/videos/IMG_5002.MOV" class="glightbox" data-gallery="videos">
             <video poster="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/videos/IMG_5002.MOV" loading="lazy" muted>
               <source src="https://pub-b6d85dc4453b487d879f35b1669c3da2.r2.dev/videos/IMG_5002.MOV" type="video/quicktime">
