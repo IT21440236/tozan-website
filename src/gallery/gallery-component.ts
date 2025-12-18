@@ -121,7 +121,18 @@ export class GalleryComponent implements IGalleryComponent, ErrorHandler {
     this.setupDefaultFilters();
     
     // Set up resize observer
-    this.resizeObserver = new ResizeObserver(this.handleResize.bind(this));
+    this.resizeObserver = new ResizeObserver((entries) => {
+      // Convert ResizeObserverEntry to ResizeEvent
+      if (entries.length > 0) {
+        const entry = entries[0];
+        const resizeEvent: ResizeEvent = {
+          width: entry.contentRect.width,
+          height: entry.contentRect.height,
+          devicePixelRatio: window.devicePixelRatio || 1
+        };
+        this.handleResize(resizeEvent);
+      }
+    });
     this.resizeObserver.observe(container);
   }
 
@@ -551,7 +562,8 @@ export class GalleryComponent implements IGalleryComponent, ErrorHandler {
       }
     });
     
-    await Promise.allSettled(loadPromises);
+    // Wait for all promises to complete (both resolved and rejected)
+    await Promise.all(loadPromises.map(p => p.catch(e => e)));
     
     this.loadingState.currentBatch = [];
     this.updateLoadingState();
@@ -646,7 +658,7 @@ export class GalleryComponent implements IGalleryComponent, ErrorHandler {
       try {
         const stored = localStorage.getItem('gallery-scroll-positions');
         if (stored) {
-          const positions = new Map(JSON.parse(stored));
+          const positions = new Map(JSON.parse(stored) as Array<[string, ScrollPosition]>);
           position = positions.get(this.currentFilter);
         }
       } catch (error) {
@@ -674,8 +686,9 @@ export class GalleryComponent implements IGalleryComponent, ErrorHandler {
       this.handleGalleryRetry();
     });
     
-    this.container.addEventListener('gallery-image-retry', (event: CustomEvent) => {
-      this.handleImageRetry(event.detail.imageId);
+    this.container.addEventListener('gallery-image-retry', (event: Event) => {
+      const customEvent = event as CustomEvent;
+      this.handleImageRetry(customEvent.detail.imageId);
     });
   }
 

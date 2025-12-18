@@ -507,7 +507,9 @@ export class ImageManager implements IImageManager {
     // Also listen for resize events as a fallback
     window.addEventListener('resize', () => {
       // Debounce resize events
-      clearTimeout(this.resizeTimeout);
+      if (this.resizeTimeout !== null) {
+        clearTimeout(this.resizeTimeout);
+      }
       this.resizeTimeout = window.setTimeout(() => {
         this.handleOrientationChange();
       }, 250);
