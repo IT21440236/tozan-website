@@ -1,0 +1,54 @@
+<!-- Google Analytics Setup Instructions -->
+<!-- 
+To add Google Analytics to your Tozan Guide website:
+
+1. Create a Google Analytics account at https://analytics.google.com
+2. Set up a new property for your website
+3. Get your Measurement ID (starts with G-)
+4. Replace 'G-XXXXXXXXXX' below with your actual Measurement ID
+5. Add this code to the <head> section of all your HTML files
+
+Google Analytics 4 (GA4) Code:
+-->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<!-- 
+Alternative: Google Tag Manager (Recommended for advanced tracking)
+
+1. Create a Google Tag Manager account at https://tagmanager.google.com
+2. Create a container for your website
+3. Get your Container ID (starts with GTM-)
+4. Replace 'GTM-XXXXXXX' below with your actual Container ID
+5. Add the first script to <head> and the second to <body>
+
+Google Tag Manager Code:
+-->
+
+<!-- Google Tag Manager (Head) -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Tag Manager (Body) - Add immediately after opening <body> tag -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- 
+Privacy-Compliant Analytics Setup:
+- Consider using privacy-focused alternatives like Plausible or Fathom
+- Implement cookie consent if required by your jurisdiction
+- Update your Privacy Policy to mention analytics tracking
+-->

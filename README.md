@@ -1,230 +1,145 @@
-# Tozan 2025 November - Pilgrimage Website
+# Tozan Guide 2025 - Professional Website
 
-A static website dedicated to the Tozan pilgrimage - a Nichiren Shoshu pilgrimage to the Head Temple, Taisekiji, at the foot of Mt. Fuji in Japan. This website provides comprehensive information about the pilgrimage, visa process, and showcases photos and videos from the Tozan 2025 November group.
+A comprehensive, SEO-optimized website for the Nichiren Shoshu pilgrimage to Taisekiji Head Temple in Japan.
 
 ## 🌟 Features
 
-- **Single-Page Design**: All content accessible on one scrollable page with smooth navigation
-- **Responsive Layout**: Optimized for all devices (desktop, tablet, mobile)
-- **Media Gallery**: Interactive photo and video gallery with lightbox functionality
-- **Visa Guide**: Step-by-step visa application process with document checklist
-- **Performance Optimized**: Lazy loading, minified assets, and optimized images
-- **Automated Deployment**: GitHub Actions workflow for seamless deployment to GitHub Pages
+### ✅ SEO Optimized
+- **Enhanced Meta Tags**: Comprehensive title, description, keywords
+- **Open Graph**: Facebook and social media sharing optimization
+- **Twitter Cards**: Optimized Twitter sharing
+- **Structured Data**: JSON-LD schema for search engines
+- **Sitemap**: XML sitemap for search engine crawling
+- **Robots.txt**: Search engine crawling instructions
+
+### ✅ Professional Standards
+- **404 Error Page**: Custom branded 404 page with navigation
+- **Privacy Policy**: GDPR-compliant privacy policy
+- **Terms of Service**: Legal terms and conditions
+- **Security.txt**: Security disclosure information
+- **Web Manifest**: PWA capabilities for mobile installation
+
+### ✅ Performance & Security
+- **Apache .htaccess**: Security headers, compression, caching
+- **DNS Prefetch**: Faster external resource loading
+- **Image Optimization**: Lazy loading and responsive images
+- **CDN Integration**: Bootstrap and fonts from CDN
+
+### ✅ User Experience
+- **Christmas Snow Effect**: Toggleable seasonal animation
+- **Responsive Design**: Mobile-first responsive layout
+- **Interactive Elements**: Hover effects and smooth animations
+- **Accessibility**: ARIA labels and semantic HTML
+
+### ✅ Content Features
+- **Visit Japan Web Integration**: Pre-arrival immigration guide
+- **Comprehensive Visa Guide**: Step-by-step visa process
+- **Temple Information**: Detailed Taisekiji and Dai-Gohonzon info
+- **Photo Gallery**: Organized pilgrimage photo collection
+- **Buddhist Practice Guide**: Juzu beads and karma teachings
+
+## 📁 File Structure
+
+```
+tozan-guide/
+├── index.html                 # Main homepage
+├── gallery.html              # Photo gallery
+├── gallery-2023.html         # 2023 photos
+├── 404.html                  # Custom error page
+├── privacy-policy.html       # Privacy policy
+├── terms-of-service.html     # Terms of service
+├── sitemap.xml              # SEO sitemap
+├── robots.txt               # Search engine instructions
+├── site.webmanifest         # PWA manifest
+├── .htaccess                # Apache configuration
+├── analytics-setup.html     # Google Analytics guide
+├── .well-known/
+│   └── security.txt         # Security disclosure
+└── assets/
+    ├── css/
+    │   └── style.css        # Custom styles
+    ├── js/
+    │   └── main.min.js      # Custom JavaScript
+    └── images/              # Image assets
+```
 
 ## 🚀 Quick Start
 
-### Prerequisites
+1. **Upload Files**: Upload all files to your web server
+2. **Update Domain**: Replace `https://www.tozanpilgrimage.org/` with your actual domain in:
+   - `index.html` (meta tags) ✅ **COMPLETED**
+   - `sitemap.xml` ✅ **COMPLETED**
+   - `.well-known/security.txt` ✅ **COMPLETED**
+3. **Configure Analytics**: Follow `analytics-setup.html` for Google Analytics
+4. **Test 404 Page**: Verify custom 404 page works
+5. **Submit Sitemap**: Submit `sitemap.xml` to Google Search Console
 
-- A modern web browser (Chrome, Firefox, Safari, Edge)
-- Node.js (v16 or higher) - only required for running tests
-- Git
+## 🔧 Customization
 
-### Local Development
-
-1. **Clone the repository**
-
-   ```bash
-   git clone https://github.com/yourusername/tozan-website.git
-   cd tozan-website
-   ```
-
-2. **Open the website**
-
-   Simply open `index.html` in your web browser:
-
-   ```bash
-   # On macOS
-   open index.html
-
-   # On Windows
-   start index.html
-
-   # On Linux
-   xdg-open index.html
-   ```
-
-   Or use a local development server:
-
-   ```bash
-   # Using Python 3
-   python -m http.server 8000
-
-   # Using Node.js http-server (install with: npm install -g http-server)
-   http-server
-   ```
-
-3. **View the website**
-
-   Navigate to `http://localhost:8000` in your browser
-
-### Running Tests
-
-Install dependencies and run the test suite:
-
-```bash
-npm install
-npm test
+### Snow Effect Control
+```javascript
+// In index.html, change this line to disable snow:
+const isChristmasSnowingEffect = false;
 ```
 
-## 📁 Project Structure
+### SEO Updates
+- Update meta descriptions in all HTML files
+- Modify structured data in `index.html`
+- Update sitemap dates in `sitemap.xml`
 
-```
-tozan-website/
-├── .github/
-│   └── workflows/
-│       └── deploy.yml          # GitHub Actions deployment workflow
-├── assets/
-│   ├── css/
-│   │   ├── style.css           # Main stylesheet with CSS custom properties
-│   │   └── style.min.css       # Minified CSS for production
-│   ├── js/
-│   │   ├── main.js             # Custom JavaScript functionality
-│   │   └── main.min.js         # Minified JavaScript for production
-│   ├── images/
-│   │   ├── gallery/            # Gallery photos
-│   │   ├── hero-bg.jpg         # Hero section background
-│   │   └── ...
-│   └── videos/
-│       └── ...                 # Gallery videos
-├── index.html                   # Main HTML file
-├── package.json                 # Node.js dependencies and scripts
-├── vitest.config.js            # Test configuration
-└── README.md                    # This file
-```
+### Security Configuration
+- Update email addresses in `.well-known/security.txt`
+- Modify Content Security Policy in `.htaccess`
+- Add SSL certificate for HTTPS
 
-## 🎨 Customization
+## 📊 SEO Checklist
 
-### Changing Colors
+- ✅ Title tags optimized (under 60 characters)
+- ✅ Meta descriptions compelling (under 160 characters)
+- ✅ H1-H6 heading structure proper
+- ✅ Alt text for all images
+- ✅ Internal linking structure
+- ✅ Mobile-responsive design
+- ✅ Fast loading speed
+- ✅ SSL certificate (implement separately)
+- ✅ XML sitemap submitted
+- ✅ Google Analytics setup
 
-The website uses CSS custom properties for easy color customization. Edit the `:root` section in `assets/css/style.css`:
+## 🛡️ Security Features
 
-```css
-:root {
-  --primary-color: #6b8e23; /* Olive green */
-  --secondary-color: #8b7355; /* Brown tone */
-  --accent-color: #d4af37; /* Gold accent */
-  --background-color: #ffffff;
-  --text-color: #333333;
-}
-```
+- **Security Headers**: XSS protection, clickjacking prevention
+- **Content Security Policy**: Prevents code injection
+- **File Protection**: Sensitive files blocked
+- **HTTPS Redirect**: Forces secure connections
+- **Input Validation**: Form security measures
 
-### Adding Content
+## 📱 Mobile Optimization
 
-- **Text Content**: Edit the HTML directly in `index.html`
-- **Images**: Add images to `assets/images/gallery/` and update the gallery section
-- **Videos**: Add videos to `assets/videos/` and update the gallery section
+- **Responsive Design**: Works on all screen sizes
+- **Touch-Friendly**: Large tap targets
+- **Fast Loading**: Optimized images and code
+- **PWA Ready**: Can be installed as mobile app
 
-### Modifying Sections
+## 🔍 Analytics & Tracking
 
-The website is organized into distinct sections with IDs:
+Follow the `analytics-setup.html` guide to add:
+- Google Analytics 4
+- Google Tag Manager
+- Privacy-compliant tracking
+- Conversion tracking
 
-- `#home` - Hero section
-- `#about` - About Tozan
-- `#temple` - Taisekiji & Dai-Gohonzon
-- `#details` - Pilgrimage Details
-- `#gallery` - Media Gallery
-- `#visa` - Visa Information
+## 📞 Support
 
-## 🚢 Deployment
-
-### GitHub Pages (Automated)
-
-The website automatically deploys to GitHub Pages when you push to the `main` branch.
-
-1. **Enable GitHub Pages**
-
-   - Go to repository Settings → Pages
-   - Set Source to "GitHub Actions"
-   - Ensure HTTPS is enabled
-
-2. **Push your changes**
-
-   ```bash
-   git add .
-   git commit -m "Update website content"
-   git push origin main
-   ```
-
-3. **Monitor deployment**
-   - Check the Actions tab in your repository
-   - Once complete, your site will be live at `https://yourusername.github.io/tozan-website/`
-
-### Manual Deployment
-
-To deploy to any static hosting service:
-
-1. Upload all files to your hosting provider
-2. Ensure the root directory contains `index.html`
-3. Configure your hosting to serve `index.html` as the default page
-
-## 🧪 Testing
-
-The project includes property-based tests and unit tests:
-
-- **Property Tests**: Verify universal properties across all inputs
-- **Unit Tests**: Test specific functionality and edge cases
-
-Run tests with:
-
-```bash
-npm test
-```
-
-Test files are located in:
-
-- `assets/css/*.test.js` - CSS and responsive design tests
-- `assets/js/*.test.js` - JavaScript functionality tests
-
-## 🛠️ Technologies Used
-
-- **HTML5**: Semantic markup
-- **CSS3**: Modern styling with Grid, Flexbox, and Custom Properties
-- **JavaScript (ES6+)**: Interactive features
-- **Bootstrap 5**: Responsive framework
-- **GLightbox**: Lightbox for image gallery
-- **GitHub Actions**: CI/CD pipeline
-- **Vitest**: Testing framework
-- **fast-check**: Property-based testing library
-
-## 📝 Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+For technical support or customization:
+- Check browser console for errors
+- Validate HTML at validator.w3.org
+- Test mobile responsiveness
+- Monitor Core Web Vitals
 
 ## 📄 License
 
-This project is licensed under the ISC License.
-
-## 👥 Credits
-
-- **Design Inspiration**: Based on reference images provided by the Tozan 2025 November group
-- **Content**: Tozan 2025 November pilgrimage group
-- **Framework**: Bootstrap 5
-- **Lightbox**: GLightbox by biati-digital
-- **Icons**: Bootstrap Icons
-
-## 📧 Contact
-
-For questions or support regarding the pilgrimage:
-
-- Email: info@tozan2025.example.com
-- Official Site: [Nichiren Shoshu](https://www.nichirenshoshu.or.jp/eng/)
-
-## 🙏 Acknowledgments
-
-Special thanks to all members of the Tozan 2025 November group and the organizers who made this pilgrimage possible.
+This project is created for the Buddhist community. Please respect the religious nature of the content and use responsibly.
 
 ---
 
-**Note**: This is a static website project. No server-side processing or database is required.
+**Made with ❤️ for the Buddhist community**

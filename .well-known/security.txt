@@ -1,0 +1,6 @@
+Contact: mailto:security@tozanpilgrimage.org
+Expires: 2025-12-31T23:59:59.000Z
+Acknowledgments: https://www.tozanpilgrimage.org/security-acknowledgments
+Preferred-Languages: en
+Canonical: https://www.tozanpilgrimage.org/.well-known/security.txt
+Policy: https://www.tozanpilgrimage.org/security-policy
