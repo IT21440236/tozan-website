@@ -7,6 +7,15 @@ import { GalleryIntegration, initializeGalleryIntegration } from './gallery-inte
 import { PerformanceMonitor, createPerformanceDashboard } from './performance-monitor';
 
 /**
+ * Extend the Window interface to include our custom properties
+ */
+declare global {
+  interface Window {
+    galleryPerformanceSystem?: GalleryPerformanceSystem;
+  }
+}
+
+/**
  * Global configuration for the gallery performance system
  */
 interface GalleryPerformanceConfig {
@@ -205,8 +214,9 @@ class GalleryPerformanceSystem {
    */
   private setupGlobalEventListeners(): void {
     // Listen for performance reports
-    window.addEventListener('gallery-performance-report', (event: CustomEvent) => {
-      const report = event.detail;
+    window.addEventListener('gallery-performance-report', (event: Event) => {
+      const customEvent = event as CustomEvent;
+      const report = customEvent.detail;
       
       if (this.config.debugMode) {
         console.log('Performance Report:', report);
@@ -372,7 +382,7 @@ if (typeof window !== 'undefined') {
     initializeGalleryPerformanceSystem({
       debugMode: document.currentScript?.getAttribute('data-debug') === 'true',
       enablePerformanceDashboard: document.currentScript?.getAttribute('data-dashboard') === 'true'
-    }).then((system) => {
+    }).then(() => {
       console.log('Gallery Performance System auto-initialized');
     }).catch((error) => {
       console.error('Failed to auto-initialize Gallery Performance System:', error);
