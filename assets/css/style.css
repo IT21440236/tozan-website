@@ -1059,6 +1059,30 @@ body {
     margin: 0 3px;
   }
 
+  /* Message cards mobile adjustments */
+  .message-card {
+    margin-bottom: 2rem;
+  }
+
+  .message-photo {
+    padding: 1.5rem 1.5rem 1rem;
+  }
+
+  .message-photo img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .message-content {
+    padding: 1rem 1.5rem 1.5rem;
+  }
+
+  .quote-icon {
+    font-size: 1.5rem;
+    top: 0.25rem;
+    left: 1rem;
+  }
+
   .hero-content {
     padding: var(--spacing-md);
   }
@@ -1098,6 +1122,115 @@ body {
     height: 8px;
     margin: 0 2px;
   }
+
+  /* Message cards small mobile adjustments */
+  .message-photo {
+    padding: 1rem 1rem 0.75rem;
+  }
+
+  .message-photo img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .member-name {
+    font-size: 1rem;
+  }
+
+  .member-role {
+    font-size: 0.8rem;
+  }
+
+  .message-content {
+    padding: 1rem 1.25rem 1.25rem;
+  }
+
+  .message-content p {
+    font-size: 0.9rem;
+    padding-left: 0.75rem;
+  }
+
+/* ============================================================================
+   MESSAGE CARDS SECTION
+   ============================================================================
+   Floating message cards for community testimonials
+*/
+.message-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  border: none;
+}
+
+.message-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.message-photo {
+  text-align: center;
+  padding: 2rem 2rem 1rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.message-photo img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+.member-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--dark-color);
+  margin-bottom: 0.25rem;
+}
+
+.member-role {
+  font-size: 0.9rem;
+  color: var(--muted-color);
+  font-style: italic;
+}
+
+.message-content {
+  padding: 1.5rem 2rem 2rem;
+  position: relative;
+}
+
+.quote-icon {
+  font-size: 2rem;
+  color: var(--primary-color);
+  opacity: 0.3;
+  position: absolute;
+  top: 0.5rem;
+  left: 1.5rem;
+}
+
+.message-content p {
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--text-color);
+  margin: 0;
+  padding-left: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Map container styling */
+.map-container {
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.map-container iframe {
+  display: block;
+  width: 100%;
+}
 
   .hero-content .lead {
     font-size: var(--font-size-base);
