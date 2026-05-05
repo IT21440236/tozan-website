@@ -36,3 +36,8 @@ yarn-error.log*
 
 # Gallery converted images
 assets/images/gallery/converted/
+
+# Local-only docs / scratch
+WEB sITE.docx
+_doc.txt
+_extract.ps1

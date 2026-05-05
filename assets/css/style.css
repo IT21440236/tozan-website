@@ -2163,3 +2163,61 @@ video {
     padding: 1.5rem;
   }
 }
+/* =============================================================
+   UX Enhancements — Reading progress, reveal-on-scroll, spy
+   ============================================================= */
+
+/* Reading progress bar */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  z-index: 10000;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+/* Scroll-triggered reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* Sidebar active link styling (works with existing .sidebar-link) */
+.sidebar-link.active {
+  background: linear-gradient(135deg, rgba(102,126,234,0.12), rgba(118,75,162,0.12));
+  border-left: 3px solid #667eea;
+  color: #667eea;
+  font-weight: 600;
+}
+
+/* Subtle hover lift on cards */
+.card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.08); }
+
+/* Better gallery image rendering while thumbnails decode */
+.gallery-item img {
+  background: #f3f4f6;
+  min-height: 180px;
+}
+
+/* SVG-sprite icon defaults (replaces bootstrap-icons font) */
+svg.bi {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  vertical-align: -0.125em;
+  display: inline-block;
+}
