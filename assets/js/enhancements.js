@@ -53,8 +53,12 @@
       return;
     }
 
+    // Only animate small/medium child elements. Large section wrappers
+    // (.content-section, .detail-section) are intentionally excluded because
+    // when they are taller than the viewport the IntersectionObserver
+    // threshold can fail to fire and the whole block would stay invisible.
     const targets = document.querySelectorAll(
-      ".content-section, .detail-section, .section-content > .card, .feature-card, .step-item"
+      ".section-content > .card, .feature-card, .step-item"
     );
     if (!targets.length || !("IntersectionObserver" in window)) return;
 
@@ -71,8 +75,18 @@
           }
         });
       },
-      { rootMargin: "0px 0px -10% 0px", threshold: 0.05 }
+      { rootMargin: "0px 0px -5% 0px", threshold: 0 }
     );
+
+    // Safety net: any reveal element that hasn't been marked visible
+    // within 3s (e.g. due to layout/observer edge cases) should be shown.
+    window.setTimeout(function () {
+      targets.forEach(function (el) {
+        if (!el.classList.contains("is-visible")) {
+          el.classList.add("is-visible");
+        }
+      });
+    }, 3000);
 
     targets.forEach(function (el) {
       io.observe(el);
