@@ -20,12 +20,36 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Gallery 2026 Q1 Page -->
+  <url>
+    <loc>https://www.tozanpilgrimage.org/gallery-2026-q1.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Gallery 2023 Page -->
   <url>
     <loc>https://www.tozanpilgrimage.org/gallery-2023.html</loc>
     <lastmod>2024-12-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
+  </url>
+
+  <!-- Gallery 2006 & 2009 Page -->
+  <url>
+    <loc>https://www.tozanpilgrimage.org/gallery-2006-2009.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Gallery 2002 Page -->
+  <url>
+    <loc>https://www.tozanpilgrimage.org/gallery-2002.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
 
   <!-- Main Sections (anchors) -->
